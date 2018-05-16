@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180512000314) do
+ActiveRecord::Schema.define(version: 20180512004949) do
 
   create_table "administrators", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -47,9 +47,9 @@ ActiveRecord::Schema.define(version: 20180512000314) do
   create_table "cities", force: :cascade do |t|
     t.integer  "state_id"
     t.string   "description"
+    t.integer  "cep"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "cep"
   end
 
   add_index "cities", ["state_id"], name: "index_cities_on_state_id"

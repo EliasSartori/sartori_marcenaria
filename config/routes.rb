@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  namespace :backoffice do
+  get 'dashboard/index'
+  end
+
+  resources :adressses
+  resources :cities
+  resources :states
   resources :adressses
   resources :cities
   resources :states

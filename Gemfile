@@ -8,6 +8,7 @@ gem 'rails-i18n'
 gem 'foreman'
 gem 'devise'
 gem 'devise-i18n'
+gem 'bootstrap_sb_admin_base_v2'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -42,6 +43,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'better_errors'
+  gem 'rails-erd'
 end
 
 group :development do
