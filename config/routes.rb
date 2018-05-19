@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
+  namespace :site do
+    get 'home', to: 'home#index'
+  end
+
+  get 'admin', to: 'backoffice/dashboard#index'
+
   namespace :backoffice do
-  get 'dashboard/index'
+    get 'dashboard', to: 'dashboard#index'
   end
 
   resources :adressses
@@ -14,8 +20,8 @@ Rails.application.routes.draw do
   resources :orders
   devise_for :administrators
   devise_for :users
-  get 'home/index'
-  root 'home#index'
+  
+  root 'site/home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
