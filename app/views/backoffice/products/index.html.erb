@@ -3,9 +3,19 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">Produtos</h1>
+                <% if notice %>
+                    <div class="alert alert-success alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <%= notice %>
+                    </div>
+                <% end %>
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         Lista de Produtos
+                        <%= link_to new_backoffice_product_path  do %>
+                            <button type="button" class="btn btn-success btn-circle pull-right" style="margin-top:-5px;"><i class="fa fa-plus"></i>
+                            </button>
+                        <% end %>
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
@@ -18,7 +28,7 @@
                                         <th>Quantidade</th>
                                         <th>Preço</th>
                                         <th>Criado em</th>
-                                        <th></th>
+                                        <th>Opções</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -30,8 +40,9 @@
                                             <td><%= product.price %></td>
                                             <td><%= product.created_at %></td>
                                             <td>
-                                                <button type="button" class="btn btn-warning btn-circle"><i class="fa fa-pencil"></i></button>
-                                                <button type="button" class="btn btn-danger btn-circle"><i class="fa fa-times"></i></button>
+                                                <%= link_to edit_backoffice_product_path(product), class: "btn btn-warning btn-circle " do %>
+                                                    <i class="fa fa-pencil"></i>
+                                                <% end %>
                                             </td>
                                         </tr>
                                     <% end %>
