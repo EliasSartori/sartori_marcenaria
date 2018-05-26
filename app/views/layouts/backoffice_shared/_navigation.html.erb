@@ -7,7 +7,9 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html">Sartori Marcenaria - Administrativo</a>
+        <%= link_to backoffice_path, class: "navbar-brand" do %>
+            Sartori Marcenaria - Administrativo
+        <% end %>
     </div>
     <!-- /.navbar-header -->
 
@@ -21,6 +23,11 @@
                 <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
                 </li>
                 <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                </li>
+                <li>
+                    <%= link_to root_path do %>
+                        <i class="fa fa-shopping-cart fa-fw"></i> Site
+                    <% end %>
                 </li>
                 <li class="divider"></li>
                 <li>
