@@ -7,3 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Product.create(description: 'Cadeira', quantity: 100, price: 38.50)
+Administrator.create(email: 'admin@admin.com', password: '123456', password_confirmation: '123456')

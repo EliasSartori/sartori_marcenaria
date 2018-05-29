@@ -1,4 +1,4 @@
-<h1 class="page-header">Estados</h1>
+<h1 class="page-header">Adminstradores</h1>
 <% if notice %>
     <div class="alert alert-success alert-dismissable">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -7,8 +7,8 @@
 <% end %>
 <div class="panel panel-default">
     <div class="panel-heading">
-        Lista de Estados
-        <%= link_to new_backoffice_state_path  do %>
+        Lista de Adminstradores
+        <%= link_to new_backoffice_administrator_path  do %>
             <button type="button" class="btn btn-success btn-circle pull-right" style="margin-top:-5px;"><i class="fa fa-plus"></i>
             </button>
         <% end %>
@@ -20,23 +20,23 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Descrição</th>
+                        <th>Email</th>
                         <th style="width: 12.5%">Opções</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <% @states.each do |state| %>
+                    <% @administrators.each do |administrator| %>
                         <tr>
-                            <td><%= state.id %></td>
-                            <td><%= state.description %></td>
+                            <td><%= administrator.id %></td>
+                            <td><%= administrator.email %></td>
                             <td>
-                                <%= link_to edit_backoffice_state_path(state), class: "btn btn-info btn-circle" do %>
+                                <%= link_to edit_backoffice_administrator_path(administrator), class: "btn btn-info btn-circle" do %>
                                     <i class="fa fa-file"></i>
                                 <% end %>
-                                <%= link_to edit_backoffice_state_path(state), class: "btn btn-warning btn-circle" do %>
+                                <%= link_to edit_backoffice_administrator_path(administrator), class: "btn btn-warning btn-circle" do %>
                                     <i class="fa fa-pencil"></i>
                                 <% end %>
-                                <%= link_to backoffice_state_path(state),  method: :delete, class: "btn btn-danger btn-circle", data: { confirm: 'Are you sure?' } do %>
+                                <%= link_to backoffice_administrator_path(administrator),  method: :delete, class: "btn btn-danger btn-circle", data: { confirm: 'Are you sure?' } do %>
                                     <i class="fa fa-trash"></i>
                                 <% end %>
                             </td>
