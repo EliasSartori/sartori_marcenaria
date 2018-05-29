@@ -1,8 +1,18 @@
 Rails.application.routes.draw do
+  namespace :backoffice do
+  get 'cities/index'
+  end
+
+  namespace :backoffice do
+  get 'states/index'
+  end
+
   get 'backoffice', to: 'backoffice/dashboard#index'
  
   namespace :backoffice do
     resources :products
+    resources :cities
+    resources :states
     get 'dashboard', to: 'dashboard#index'
   end
 
