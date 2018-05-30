@@ -40,6 +40,8 @@ class Backoffice::AdministratorsController < BackofficeController
   def destroy
     if @administrator.destroy
       redirect_to backoffice_administrators_path, notice: "Administrador deletado!"
+    else
+      render :index
     end
   end
 
@@ -51,6 +53,6 @@ class Backoffice::AdministratorsController < BackofficeController
     end
 
     def params_administrator
-      params.require(:administrator).permit(:email, :password, :password_confirmation)
+      params.require(:administrator).permit(:name, :email, :password, :password_confirmation)
     end
 end

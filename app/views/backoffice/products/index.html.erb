@@ -40,7 +40,8 @@
                                 <%= link_to edit_backoffice_product_path(product), class: "btn btn-warning btn-circle" do %>
                                     <i class="fa fa-pencil"></i>
                                 <% end %>
-                                <%= link_to backoffice_product_path(product),  method: :delete, class: "btn btn-danger btn-circle", data: { confirm: 'Are you sure?' } do %>
+                                <%= link_to backoffice_product_path(product),  method: :delete, class: "btn btn-danger btn-circle",
+                                                                               data: { confirm: 'Você deseja realmente excluir?' } do %>
                                     <i class="fa fa-trash"></i>
                                 <% end %>
                             </td>

@@ -21,7 +21,7 @@
                     <tr>
                         <th>#</th>
                         <th>Descrição</th>
-                        <th style="width: 12.5%">Opções</th>
+                        <th style="width: 9%">Opções</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -30,13 +30,11 @@
                             <td><%= state.id %></td>
                             <td><%= state.description %></td>
                             <td>
-                                <%= link_to edit_backoffice_state_path(state), class: "btn btn-info btn-circle" do %>
-                                    <i class="fa fa-file"></i>
-                                <% end %>
                                 <%= link_to edit_backoffice_state_path(state), class: "btn btn-warning btn-circle" do %>
                                     <i class="fa fa-pencil"></i>
                                 <% end %>
-                                <%= link_to backoffice_state_path(state),  method: :delete, class: "btn btn-danger btn-circle", data: { confirm: 'Are you sure?' } do %>
+                                <%= link_to backoffice_state_path(state),  method: :delete, class: "btn btn-danger btn-circle", 
+                                                                           data: { confirm: 'Você deseja realmente excluir?'} do %>
                                     <i class="fa fa-trash"></i>
                                 <% end %>
                             </td>

@@ -34,6 +34,8 @@ class Backoffice::StatesController < BackofficeController
   def destroy
     if @state.destroy
       redirect_to backoffice_states_path, notice: "Cidade deletado!"
+    else
+      render :index
     end
   end
 

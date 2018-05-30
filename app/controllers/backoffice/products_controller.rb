@@ -34,6 +34,8 @@ class Backoffice::ProductsController < BackofficeController
   def destroy
     if @product.destroy
       redirect_to backoffice_products_path, notice: "Produto deletado!"
+    else
+      render :index
     end
   end
 

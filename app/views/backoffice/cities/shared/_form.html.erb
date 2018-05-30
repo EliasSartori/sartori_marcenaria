@@ -23,6 +23,10 @@
                     <%= f.text_field :description, class: "form-control", placeholder: "Ex.: Erechim"%>
             </div>
             <div class="form-group">
+                <label>CEP (Somente números)</label>
+                    <%= f.text_field :cep, class: "form-control", placeholder: "Ex.: 99740000", maxlength: "8"%>
+            </div>
+            <div class="form-group">
                 <label>Estado</label>
                 <%= collection_select(:city, :state_id, State.all, :id, :description, {}, {:class=>'form-control'})%>
             </div>

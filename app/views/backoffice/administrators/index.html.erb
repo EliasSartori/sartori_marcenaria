@@ -20,23 +20,22 @@
                 <thead>
                     <tr>
                         <th>#</th>
+                        <th>Nome</th>
                         <th>Email</th>
-                        <th style="width: 12.5%">Opções</th>
+                        <th style="width: 9%">Opções</th>
                     </tr>
                 </thead>
                 <tbody>
                     <% @administrators.each do |administrator| %>
                         <tr>
                             <td><%= administrator.id %></td>
+                            <td><%= administrator.name %></td>
                             <td><%= administrator.email %></td>
                             <td>
-                                <%= link_to edit_backoffice_administrator_path(administrator), class: "btn btn-info btn-circle" do %>
-                                    <i class="fa fa-file"></i>
-                                <% end %>
                                 <%= link_to edit_backoffice_administrator_path(administrator), class: "btn btn-warning btn-circle" do %>
                                     <i class="fa fa-pencil"></i>
                                 <% end %>
-                                <%= link_to backoffice_administrator_path(administrator),  method: :delete, class: "btn btn-danger btn-circle", data: { confirm: 'Are you sure?' } do %>
+                                <%= link_to backoffice_administrator_path(administrator),  method: :delete, class: "btn btn-danger btn-circle", data: { confirm: 'Você deseja realmente excluir?' } do %>
                                     <i class="fa fa-trash"></i>
                                 <% end %>
                             </td>
