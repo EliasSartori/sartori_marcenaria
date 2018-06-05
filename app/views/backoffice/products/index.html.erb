@@ -20,7 +20,7 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Descrição</th>
+                        <th>Nome</th>
                         <th>Quantidade</th>
                         <th>Preço</th>
                         <th style="width: 12.5%">Opções</th>
@@ -30,7 +30,7 @@
                     <% @products.each do |product| %>
                         <tr>
                             <td><%= product.id %></td>
-                            <td><%= product.description %></td>
+                            <td><%= product.name %></td>
                             <td><%= product.quantity %></td>
                             <td><%= product.price %></td>
                             <td>

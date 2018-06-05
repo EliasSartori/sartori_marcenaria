@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def layout_by_resource
-    if devise_controller? && resource_name == :administrator
+    if devise_controller?
       "backoffice_devise"
     else
       "application"

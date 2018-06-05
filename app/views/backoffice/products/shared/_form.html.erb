@@ -19,8 +19,12 @@
         <div class="col-lg-6">
             <%= form_for([:backoffice, @product]) do |f| %>
             <div class="form-group">
+                <label>Nome</label>
+                    <%= f.text_field :name, class: "form-control", placeholder: "Ex.: Cadeira, Mesa"%>
+            </div>
+            <div class="form-group">
                 <label>Descrição</label>
-                    <%= f.text_field :description, class: "form-control", placeholder: "Ex.: Cadeira, Mesa"%>
+                    <%= f.text_area :description, class: "form-control", placeholder: "Ex.: Cadeira de Angico, palha de plástico"%>
             </div>
             <div class="form-group">
                 <label>Quantidade</label>
