@@ -10,6 +10,7 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'bootstrap_sb_admin_base_v2'
 gem 'rails-assets-bootstrap', source: 'https://rails-assets.org'
+gem 'paperclip', "~> 5.0.0"
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'

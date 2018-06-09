@@ -5,7 +5,6 @@
     <header class="jumbotron my-4">
     <h1 class="display-3">Sartori Marcenaria</h1>
     <p class="lead">Melhores produtos no setor marceneiro!</p>
-    <a href="#" class="btn btn-primary btn-lg">Call to action!</a>
     </header>
 
     <!-- Page Features -->
@@ -13,10 +12,11 @@
     <% @products.each do |product| %>
         <div class="col-lg-3 col-md-6 mb-4">
             <div class="card">
-            <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+            <%= image_tag product.image.url(:medium) , class: "card-img-top"%>
             <div class="card-body">
                 <h4 class="card-title"><strong><%= product.name %></strong></h4>
                 <p class="card-text">Preço: R$<%= product.price %></p>
+                <p class="card-text">Estoque: <strong><%= product.quantity %></strong> unidades</p>
             </div>
             <div class="card-footer">
                 <a href="#" class="btn btn-primary">Ver produto</a>
