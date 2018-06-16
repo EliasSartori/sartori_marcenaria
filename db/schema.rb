@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180608034915) do
+ActiveRecord::Schema.define(version: 20180616003957) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "city_id"
+    t.string   "street"
+    t.string   "neighborhood"
+    t.integer  "number"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "addresses", ["city_id"], name: "index_addresses_on_city_id"
+  add_index "addresses", ["user_id"], name: "index_addresses_on_user_id"
 
   create_table "administrators", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -31,19 +44,6 @@ ActiveRecord::Schema.define(version: 20180608034915) do
 
   add_index "administrators", ["email"], name: "index_administrators_on_email", unique: true
   add_index "administrators", ["reset_password_token"], name: "index_administrators_on_reset_password_token", unique: true
-
-  create_table "adressses", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "city_id"
-    t.string   "street"
-    t.string   "neighborhood"
-    t.integer  "number"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  add_index "adressses", ["city_id"], name: "index_adressses_on_city_id"
-  add_index "adressses", ["user_id"], name: "index_adressses_on_user_id"
 
   create_table "cities", force: :cascade do |t|
     t.integer  "state_id"

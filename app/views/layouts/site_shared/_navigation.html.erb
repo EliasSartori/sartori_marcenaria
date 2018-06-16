@@ -20,7 +20,7 @@
                 </li>
             <% else %>
                 <li class="nav-item">
-                    <%= link_to '#' , class: "nav-link" do %>
+                    <%= link_to site_profile_dashboard_index_path , class: "nav-link" do %>
                         <%= current_user.email %>
                     <% end %>
                 </li>

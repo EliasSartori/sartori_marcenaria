@@ -1,5 +1,4 @@
-class Site::HomeController < ApplicationController
-  layout "site"
+class Site::HomeController < SiteController
   def index
     @products = Product.order(updated_at: :desc)
   end
