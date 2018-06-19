@@ -1,0 +1,43 @@
+<h2 class="page-header">Endereços</h2>
+<% if notice %>
+    <div class="alert alert-success alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <%= notice %>
+    </div>
+<% end %>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Rua</th>
+            <th>Nº</th>
+            <th>Cidade</th>
+            <th>Estado</th>
+            <th >Opções</th>
+        </tr>
+        
+        <%= link_to new_site_profile_address_path, class: "pull-right btn btn-success btn-circle" do %>
+            ADICIONAR ENDEREÇO
+        <% end %>
+    </thead>
+    <tbody>
+        <% @addresses.each do |address| %>
+        <tr>
+            <td><%= address.id %></td>
+            <td><%= address.street %></td>
+            <td><%= address.number %></td>
+            <td><%= address.city.description %></td>
+            <td><%= address.city.state.description %></td>
+            <td>
+                <%= link_to edit_site_profile_address_path(address), class: "btn btn-warning btn-circle" do %>
+                    <i class="fa fa-pencil"></i>
+                <% end %>
+                <%= link_to site_profile_address_path(address),  method: :delete, class: "btn btn-danger btn-circle", 
+                    data: { confirm: 'Você deseja realmente excluir?' } do %>
+                    <i class="fa fa-trash"></i>
+                <% end %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>

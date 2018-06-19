@@ -1,4 +1,4 @@
-class Adresss < ActiveRecord::Base
+class Address < ActiveRecord::Base
   belongs_to :user
   belongs_to :city
 end
