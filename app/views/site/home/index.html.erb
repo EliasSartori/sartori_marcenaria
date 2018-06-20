@@ -2,7 +2,7 @@
 <div class="container">
 
     <!-- Jumbotron Header -->
-    <header class="jumbotron my-4">
+    <header class="jumbotron my-4 text-center">
     <h1 class="display-3">Sartori Marcenaria</h1>
     <p class="lead">Melhores produtos no setor marceneiro!</p>
     </header>
@@ -19,7 +19,7 @@
                 <p class="card-text">Estoque: <strong><%= product.quantity %></strong> unidades</p>
             </div>
             <div class="card-footer">
-                <a href="#" class="btn btn-primary">Ver produto</a>
+                <%= link_to  "Ver Produto", site_home_path(product), class: "btn btn-primary" %>
             </div>
             </div>
         </div>
