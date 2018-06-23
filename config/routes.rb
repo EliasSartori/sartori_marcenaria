@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   namespace :backoffice do
     resources :products
     resources :cities
+    resources :users
     resources :states
     resources :administrators, except: [:show]
     get 'dashboard', to: 'dashboard#index'
@@ -14,6 +15,8 @@ Rails.application.routes.draw do
     namespace :profile do
       resources :dashboard, only: [:index] 
       resources :addresses
+      resources :users
+      resources :orders
     end
     resources :home, only: [:show, :index] 
   end

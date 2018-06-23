@@ -1,0 +1,30 @@
+<h2><strong>Dados Pessoais</strong></h2>
+<%= form_for([:site, :profile, @user], html: { multipart: true }) do |f| %>
+  <div class="row">
+    <div class="col-6">
+      <div class="form-group">
+        <label>Nome:</label>
+        <%= f.text_field :name, value: "#{current_user.name}", class: "form-control", readonly: true %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <div class="form-group">
+        <label>Telefone:</label>
+        <%= f.text_field :phone, value: "#{current_user.phone}", class: "form-control", readonly: true %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <div class="form-group">
+        <label>Email:</label>
+        <%= f.text_field :email, value: "#{current_user.email}", class: "form-control", readonly: true %>
+      </div>
+    </div>
+  </div>
+   <%= link_to edit_site_profile_user_path(current_user), class: "pull-left btn btn-success btn-circle" do %>
+        EDITAR DADOS
+    <% end %>
+<% end %>

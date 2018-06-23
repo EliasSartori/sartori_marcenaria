@@ -1,0 +1,44 @@
+<h2><strong>Dados Pessoais</strong></h2>
+    <%= form_for([:site, :profile, @user], html: { multipart: true }) do |f| %>
+    <div class="row">
+        <div class="col-6">
+        <div class="form-group">
+            <label>Nome:</label>
+            <%= f.text_field :name, value: "#{current_user.name}", class: "form-control", required: true %>
+        </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+        <div class="form-group">
+            <label>Telefone:</label>
+            <%= f.text_field :phone, value: "#{current_user.phone}", class: "form-control", required: true, maxlength:"9" %>
+        </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+        <div class="form-group">
+            <label>Email:</label>
+            <%= f.text_field :email, class: "form-control", required: true %>
+        </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <label>Senha:</label>
+                <%= f.password_field :password, class: "form-control" %>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <label>Confirmação de Senha:</label>
+                <%= f.password_field :password_confirmation, class: "form-control" %>
+            </div>
+        </div>
+    </div>
+    <%= submit_tag "Salvar", class: "btn btn-success"  %>
+<% end %>

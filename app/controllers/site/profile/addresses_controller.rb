@@ -2,7 +2,7 @@ class Site::Profile::AddressesController < Site::ProfileController
     before_action :set_addresses, only: [:edit, :update, :destroy]
 
   def index
-    @addresses = Address.all
+    @addresses = current_user.address
   end
 
   def edit
