@@ -16,7 +16,9 @@ Rails.application.routes.draw do
       resources :dashboard, only: [:index] 
       resources :addresses
       resources :users
-      resources :orders
+      resources :orders do
+        patch :delivered, on: :member
+      end
     end
     resources :home, only: [:show, :index] 
   end

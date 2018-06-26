@@ -11,6 +11,16 @@
         </tr>        
     </thead>
     <tbody>
-
+      <% @orders.each do |order| %>
+        <tr>
+            <td>
+                <%= image_tag order.products_order.product.image.url(:thumb) %>
+            </td>
+            <td><%= order.user.name %></td>
+            <td><%=  number_to_currency order.amount %></td>
+            <td><%= order.products_order.quantity %></td>
+            <td><%= order.delivered %></td>
+        </tr>
+      <% end %>
     </tbody>
 </table>
