@@ -1,0 +1,51 @@
+<h1 class="page-header"><strong>Pedidos</strong></h1>
+<% if notice %>
+    <div class="alert alert-success alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <%= notice %>
+    </div>
+<% end %>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Lista de Pedidos
+    </div>
+    <!-- /.panel-heading -->
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Cliente</th>
+                        <th>Produto</th>
+                        <th>Endereço</th>
+                        <th>Valor</th>
+                        <th>Situação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @orders.each do |order| %>
+                        <tr>
+                            <td><%= order.id %></td>
+                            <td><%= order.user.name %></td>
+                            <td><%= order.products_order.product.name %></td>
+                            <td><%= order.address_id %></td>
+                            <td><%= order.amount %></td>
+                            <td>
+                                <%= 
+                                if order.delivered
+                                    link_to  "Pedido Entregue", "#", 
+                                    class: "btn btn-warning", disabled: true
+                                else
+                                    link_to  "Marcar Entregue", delivered_backoffice_order_path(order), 
+                                    class: "btn btn-success", method: :patch
+                                end
+                                %>
+                            </td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

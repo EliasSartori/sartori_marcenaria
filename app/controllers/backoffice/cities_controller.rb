@@ -31,7 +31,7 @@ class Backoffice::CitiesController < BackofficeController
   end
 
   def destroy
-    if @City.destroy
+    if @city.destroy
       redirect_to backoffice_cities_path, notice: "Cidade deletada!"
     else
       render :index

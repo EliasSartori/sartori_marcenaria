@@ -2,9 +2,10 @@
 <div class="container">
 
     <!-- Jumbotron Header -->
-    <header class="jumbotron my-4 text-center">
-    <h1 class="display-3">Sartori Marcenaria</h1>
-    <p class="lead">Melhores produtos no setor marceneiro!</p>
+    <header class="jumbotron my-4 text-center" style="background-image: url('https://www.pixeden.com/media/k2/galleries/220/001-wood-melamine-subttle-pattern-background-pat.jpg'); background-repeat: no-repeat; background-size: cover;">
+    <h1 class="display-3"><strong>Sartori Marcenaria</strong></h1>
+    <h4 style="margin-top: 20px;"><strong>Melhores produtos no setor marceneiro!</strong></h4>
+    <h4 style="margin-top: 40px;">Confira nossos produtos abaixo!</h4>
     </header>
 
     <!-- Page Features -->
@@ -19,7 +20,12 @@
                 <p class="card-text">Estoque: <strong><%= product.quantity %></strong> unidades</p>
             </div>
             <div class="card-footer">
-                <%= link_to  "Ver Produto", site_home_path(product), class: "btn btn-dark" %>
+                <%= if user_signed_in?
+                    link_to  "Ver Produto", site_home_path(product), class: "btn btn-dark" 
+                 else
+                    link_to  "Ver Produto", new_user_session_path, class: "btn btn-dark"
+                 end
+                %>
             </div>
             </div>
         </div>

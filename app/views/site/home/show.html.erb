@@ -4,22 +4,26 @@
             <%= image_tag @product.image.url(:medium) , class: "card-img-top"%>
             <div class="card-footer">
                 <h3 class="card-title"><strong><%= @product.name %></strong></h3>
-                <h4>Valor: R$<%= @product.price %></h4>
+                <h5>Valor: <%= number_to_currency(@product.price) %></h5>
                 <p class="card-text"><%= @product.description %></p>
             </div>
             <div class="card-footer">
-            <%= form_for([:site, :profile, Order.new]) do |f| %>
-                <%= f.hidden_field :product_id, :value => @product.id %>
-                <div class="row">
-                    <div class="col-md-8">
-                        <%= select("order", "quantity", quantity_for_collection, { include_blank: true }, class: 'form-control' ) %>
-                        <%= collection_select(:order, :address_id, Address.all, :id, :street, {}, {:class=>'form-control'})%>
+                <%= form_for([:site, :profile, Order.new]) do |f| %>
+                    <%= f.hidden_field :product_id, :value => @product.id %>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Quantidade:</label>
+                            <%= select("order", "quantity", quantity_for_collection, { include_blank: true }, class: 'form-control' ) %>
+                        </div>
+                        <div class="col-md-8">
+                            <label>Entregar em:</label>
+                            <%= collection_select(:order, :address_id, current_user.address, :id, :street, {}, {:class=>'form-control'})%>
+                        </div>
+                        <div class="col-md-12" style="margin-top:25px;">
+                            <%= submit_tag "Fazer Pedido", class: "btn btn-success btn-block"  %>
+                        </div>                    
                     </div>
-                    <div class="col-md-4">
-                        <%= submit_tag "Enviar", class: "btn btn-success btn-block"  %>
-                    </div>                    
-                </div>
-            <% end %>
+                <% end %>
             </div>
         </div>
     </div>

@@ -9,6 +9,11 @@
             <ul class="navbar-nav ml-auto">
                 <% unless user_signed_in? %>
                     <li class="nav-item">
+                        <%= link_to "#", class: "nav-link" do %>
+                            Olá, Visitante!
+                        <% end %>
+                    </li>
+                    <li class="nav-item">
                         <%= link_to new_user_session_path, class: "nav-link" do %>
                             Entrar
                         <% end %>

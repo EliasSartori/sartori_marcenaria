@@ -1,4 +1,4 @@
-<h1 class="page-header">Usuários</h1>
+<h1 class="page-header"><strong>Usuários</strong></h1>
 <% if notice %>
     <div class="alert alert-success alert-dismissable">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -16,14 +16,27 @@
                 <thead>
                     <tr>
                         <th>#</th>
+                        <th>Nome</th>
                         <th>Email</th>
+                        <th>Telefone</th>
+                        <th style="width: 9%">Opções</th>
                     </tr>
                 </thead>
                 <tbody>
                     <% @users.each do |user| %>
                         <tr>
                             <td><%= user.id %></td>
+                            <td><%= user.name %></td>
                             <td><%= user.email %></td>
+                            <td><%= user.phone %></td>
+                            <td>
+                                <%= link_to edit_backoffice_user_path(user), class: "btn btn-warning btn-circle" do %>
+                                    <i class="fa fa-pencil"></i>
+                                <% end %>
+                                <%= link_to backoffice_user_path(user),  method: :delete, class: "btn btn-danger btn-circle", data: { confirm: 'Você deseja realmente excluir?' } do %>
+                                    <i class="fa fa-trash"></i>
+                                <% end %>
+                            </td>
                         </tr>
                     <% end %>
                 </tbody>

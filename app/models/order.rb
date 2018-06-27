@@ -15,6 +15,8 @@ class Order < ActiveRecord::Base
   end
 
   def delivered_set
-    self.delivered = false
+    unless self.persisted?
+      self.delivered = false
+    end
   end
 end

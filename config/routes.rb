@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     resources :products
     resources :cities
     resources :users
+    resources :orders do
+      patch :delivered, on: :member
+    end
     resources :states
     resources :administrators, except: [:show]
     get 'dashboard', to: 'dashboard#index'

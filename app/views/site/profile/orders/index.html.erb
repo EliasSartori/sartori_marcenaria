@@ -1,25 +1,36 @@
 <h2><strong>Pedidos</strong></h2>
+<% if notice %>
+    <div class="alert alert-success alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <%= notice %>
+    </div>
+<% end %>
 <table class="table table-hover">
     <thead>
         <tr>
             <th>#</th>
             <th>Imagem</th>
-            <th>Nome</th>
-            <th>Preço</th>
+            <th>Produto</th>
             <th>Quantidade</th>
-            <th >Opções</th>
+            <th>Valor</th>
+            <th >Situação</th>
         </tr>        
     </thead>
     <tbody>
       <% @orders.each do |order| %>
-        <tr>
-            <td>
-                <%= image_tag order.products_order.product.image.url(:thumb) %>
-            </td>
-            <td><%= order.user.name %></td>
-            <td><%=  number_to_currency order.amount %></td>
+        <tr class="align-middle">
+            <td><%= order.id %></td>
+            <td><%= image_tag order.products_order.product.image.url(:thumb) %></td>
+            <td><%= order.products_order.product.name %></td>
             <td><%= order.products_order.quantity %></td>
-            <td><%= order.delivered %></td>
+            <td><%= number_to_currency order.amount %></td>
+            <td>
+                <% if order.delivered %> 
+                    <button class="btn btn-success" disabled>Entregue</button>
+                <% else %>
+                    <button class="btn btn-danger" disabled>Pendente</button>
+                <% end %>
+            </td>
         </tr>
       <% end %>
     </tbody>
